@@ -1,7 +1,7 @@
 {
-    "name": "haiderjabbar/laravelsolr-project",
+    "name": "haiderjabbar/laravelsolr",
     "description": "A Laravel project including the laravelsolr package",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -24,8 +24,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "haiderjabbar\\laravelsolr\\": "src/"
+            "HaiderJabbar\\LaravelSolr\\": "src/"
+
         }
     },
     "scripts": {
