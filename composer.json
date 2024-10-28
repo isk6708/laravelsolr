@@ -25,7 +25,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "haiderjabbar\\laravelsolr\\": "src/"
+            "HaiderJabbar\\LaravelSolr\\": "src/"
         }
     },
     "scripts": {
