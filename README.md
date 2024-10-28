@@ -15,7 +15,7 @@ A Laravel package for seamless integration with Apache Solr, providing easy-to-u
 ## Installation
 
 ```bash
-composer require haiderjabbar/laravel-solr
+composer require haiderjabbar/laravelsolr
 ```
 
 Add the service provider to your `config/app.php`:
@@ -31,22 +31,24 @@ Add the service provider to your `config/app.php`:
 
 ```bash
 # Create a new Solr core and migration file
-php artisan solr:create-core
-
-# Create new Solr fields with optional parent and fields
-php artisan solr:create-fields
-
-# Delete a Solr core and its migration file
-php artisan solr:delete-core
-
-# Delete fields from a Solr core
-php artisan solr:delete-fields
+php artisan solr:create-core coreName
 
 # Update a Solr core with a new name
 php artisan solr:update-core
 
+# Delete a Solr core and its migration file
+php artisan solr:delete-core coreName
+
+# Create new Solr fields with optional parent and fields
+php artisan solr:create-fields coreName
+
 # Update existing Solr core fields
 php artisan solr:update-fields
+
+# Delete fields from a Solr core
+php artisan solr:delete-fields
+
+
 ```
 
 ## Basic Usage
