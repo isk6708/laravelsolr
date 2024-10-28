@@ -24,7 +24,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "HaiderJabbar\\LaravelSolr\\": "src/"
+            "Haiderjabbar\\Laravelsolr\\": "src/"
 
         }
     },
