@@ -9,6 +9,7 @@
             "email": "haider123dev@gmail.com"
         }
     ],
+    "homepage": "https://github.com/haiderjabbar/laravelsolr",
     "repositories": [
         {
             "type": "vcs",
@@ -23,7 +24,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Haiderjabbar\\Laravelsolr\\": "src/"
+            "haiderjabbar\\laravelsolr\\": "src/"
         }
     },
     "scripts": {
@@ -45,7 +46,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "providers": [
+                "haiderjabbar\\laravelsolr\\LaravelSolrServiceProvider"
+            ]
         }
     }
 }
