@@ -9,8 +9,13 @@ class SolrSchemaBuilder
 
     public function name($name)
     {
+        // Save the previous field if it exists
+        if ($this->currentField) {
+            $this->fields[] = $this->currentField;
+        }
+
+        // Start a new field definition
         $this->currentField = ['name' => $name];
-        $this->fields[] = &$this->currentField;
         return $this;
     }
 
@@ -35,6 +40,7 @@ class SolrSchemaBuilder
     public function stored($stored = true)
     {
         $this->currentField['stored'] = $stored;
+
         return $this;
     }
 
@@ -46,6 +52,11 @@ class SolrSchemaBuilder
 
     public function getFields()
     {
+        // Add the last field to fields before returning, if any
+        if ($this->currentField) {
+            $this->fields[] = $this->currentField;
+            $this->currentField = null;
+        }
         return $this->fields;
     }
 }
