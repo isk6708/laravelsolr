@@ -57,7 +57,7 @@ class CoreSolrService
             $response = $this->makeRequest($url);
             $result = json_decode($response, true);
 
-            return is_array($result['status'][$coreName]);
+            return is_array($result['status'][$coreName]) && count($result['status'][$coreName])>0;
 
         } catch (Exception $e) {
             $this->logError("Error checking core existence: " . $e->getMessage());
