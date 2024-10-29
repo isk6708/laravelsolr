@@ -19,7 +19,7 @@ class LaravelSolrServiceProvider extends ServiceProvider
         });
 
         // Merge the configuration file
-        $this->mergeConfigFrom(__DIR__.'/Config/solr.php', 'solr');
+        $this->mergeConfigFrom(__DIR__.'/config/solr.php', 'solr');
     }
 
     public function boot()
