@@ -14,7 +14,7 @@ class SolrModel
      */
     protected static function getSolrUrl($coreName)
     {
-        return config('solr.solr_url') . '/' . $coreName;
+        return env('SOLR_URL') . '/' . $coreName;
     }
 
     /**
