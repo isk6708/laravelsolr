@@ -16,7 +16,7 @@ fluent interface for Solr operations.
 ## Installation
 
 ```bash
-composer require haiderjabbar/laravelsolr
+composer require haiderjabbar/laravelsolr:dev-main
 ```
 
 Add the service provider to your `config/app.php`:
