@@ -25,13 +25,14 @@ class LaravelSolrServiceProvider extends ServiceProvider
     public function boot()
     {
         // Publish configuration file
-        // Load the Solr configuration file
+        // Publishing the config file to the application's config directory
         $this->publishes([
-            __DIR__.'/../config/solr.php' => config_path('solr.php'),
+            __DIR__ . '/config/solr.php' => config_path('solr.php'),
         ]);
 
+        // Merging the configuration so it's accessible via config('solr')
         $this->mergeConfigFrom(
-            __DIR__.'/../config/solr.php', 'solr'
+            __DIR__ . '/config/solr.php', 'solr'
         );
         // Load migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
