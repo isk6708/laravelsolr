@@ -100,6 +100,8 @@ $result = SolrModel::addChildToParent($coreName, $parentId, "child", $childData)
 use haiderjabbar\laravelsolr\Services\SolrQueryBuilder;
 use Illuminate\Http\Request;
 use haiderjabbar\laravelsolr\Models\SolrModel;
+
+
 class SolrController extends Controller
 {
     public function addDocument(Request $request)
