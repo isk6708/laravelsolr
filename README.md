@@ -18,6 +18,7 @@ A Laravel package for seamless integration with Apache Solr, providing easy-to-u
 composer require haiderjabbar/laravelsolr
 ```
 
+
 Add the service provider to your `config/app.php`:
 
 ```php
@@ -26,7 +27,10 @@ Add the service provider to your `config/app.php`:
     haiderjabbar\laravelsolr\LaravelSolrServiceProvider::class,
 ];
 ```
-
+You should publish  the config/solr.php config file with:
+```bash
+php artisan vendor:publish --provider="haiderjabbar\laravelsolr\LaravelSolrServiceProvider"
+```
 ## Available Commands
 
 ```bash
