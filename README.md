@@ -1,4 +1,5 @@
 # laravelsolr
+![Laravel-Solr](https://github.com/haiderjabbar/laravelsolr/blob/main/laravelsolr.png?raw=true)
 
 A Laravel package for seamless integration with Apache Solr, providing easy-to-use commands for core management and a
 fluent interface for Solr operations.
