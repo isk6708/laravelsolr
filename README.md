@@ -1,6 +1,7 @@
 # laravelsolr
 
-A Laravel package for seamless integration with Apache Solr, providing easy-to-use commands for core management and a fluent interface for Solr operations.
+A Laravel package for seamless integration with Apache Solr, providing easy-to-use commands for core management and a
+fluent interface for Solr operations.
 
 ## Features
 
@@ -18,7 +19,6 @@ A Laravel package for seamless integration with Apache Solr, providing easy-to-u
 composer require haiderjabbar/laravelsolr
 ```
 
-
 Add the service provider to your `config/app.php`:
 
 ```php
@@ -27,10 +27,13 @@ Add the service provider to your `config/app.php`:
     haiderjabbar\laravelsolr\LaravelSolrServiceProvider::class,
 ];
 ```
-You should publish  the config/solr.php config file with:
+
+You should publish the config/solr.php config file with:
+
 ```bash
 php artisan vendor:publish --provider="haiderjabbar\laravelsolr\LaravelSolrServiceProvider"
 ```
+
 ## Available Commands
 
 ```bash
@@ -94,23 +97,24 @@ $result = SolrModel::addChildToParent($coreName, $parentId, "child", $childData)
 ### Controller Example
 
 ```php
+use haiderjabbar\laravelsolr\Services\SolrQueryBuilder;
+use Illuminate\Http\Request;
+use haiderjabbar\laravelsolr\Models\SolrModel;
 class SolrController extends Controller
 {
     public function addDocument(Request $request)
     {
         $coreName = 'testCore';
-        $data = $request->all();
-        
-        for ($i = 0; $i < 400; $i++) {
-            $data['id'] = str()->random(5);
-            $data['name'] = str()->random(15);
-            $result = SolrModel::addDocument($coreName, $data);
-        }
-
-        if ($result) {
-            return response()->json(['message' => 'Document added successfully']);
-        }
-        return response()->json(['message' => 'Failed to add document'], 500);
+        $data = [
+            'id' => 1,
+            'name' => 'name'
+        ];
+    
+        $result = SolrModel::addDocument($coreName, $data);
+    
+        return $result
+            ? response()->json(['message' => 'Document added successfully'])
+            : response()->json(['message' => 'Failed to add document'], 500);
     }
 
     public function addChildDocument(Request $request, $parentId)
@@ -163,6 +167,7 @@ $builder->filter('field', '=', 'value');
 ```
 
 Available operators:
+
 - `=` Exact match
 - `!=` Not equal
 - `<` Less than
