@@ -1,6 +1,6 @@
 <?php
 
-namespace haiderjabbar\laravelsolr\Models;
+namespace HaiderJabbar\LaravelSolr\Models;
 
 use Illuminate\Support\Facades\Http;
 

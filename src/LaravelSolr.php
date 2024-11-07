@@ -1,6 +1,6 @@
 <?php
 
-namespace haiderjabbar\laravelsolr;
+namespace HaiderJabbar\LaravelSolr;
 
 class laravelsolr
 {

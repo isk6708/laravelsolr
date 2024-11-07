@@ -25,14 +25,14 @@ Add the service provider to your `config/app.php`:
 ```php
 'providers' => [
     // ...
-    haiderjabbar\laravelsolr\LaravelSolrServiceProvider::class,
+    HaiderJabbar\LaravelSolr\LaravelSolrServiceProvider::class,
 ];
 ```
 
 You should publish the config/solr.php config file with:
 
 ```bash
-php artisan vendor:publish --provider="haiderjabbar\laravelsolr\LaravelSolrServiceProvider"
+php artisan vendor:publish --provider="HaiderJabbar\LaravelSolr\LaravelSolrServiceProvider"
 ```
 
 ## Available Commands
@@ -64,7 +64,7 @@ php artisan solr:delete-fields
 ### Adding Documents
 
 ```php
-use haiderjabbar\laravelsolr\Models\SolrModel;
+use HaiderJabbar\LaravelSolr\Models\SolrModel;
 
 $coreName = 'your_core_name';
 $data = [
@@ -98,9 +98,9 @@ $result = SolrModel::addChildToParent($coreName, $parentId, "child", $childData)
 ### Controller Example
 
 ```php
-use haiderjabbar\laravelsolr\Services\SolrQueryBuilder;
+use HaiderJabbar\LaravelSolr\Services\SolrQueryBuilder;
 use Illuminate\Http\Request;
-use haiderjabbar\laravelsolr\Models\SolrModel;
+use HaiderJabbar\LaravelSolr\Models\SolrModel;
 
 
 class SolrController extends Controller
@@ -142,7 +142,7 @@ laravelsolr provides a powerful and fluent interface for building Solr queries t
 ### Basic Usage
 
 ```php
-use haiderjabbar\laravelsolr\Services\SolrQueryBuilder;
+use HaiderJabbar\LaravelSolr\Services\SolrQueryBuilder;
 
 $builder = new SolrQueryBuilder($coreName);
 ```

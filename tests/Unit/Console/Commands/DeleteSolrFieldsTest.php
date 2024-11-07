@@ -1,8 +1,8 @@
 <?php
 
-namespace haiderjabbar\laravelsolr\Tests\Unit\Console\Commands;
+namespace HaiderJabbar\LaravelSolr\Tests\Unit\Console\Commands;
 
-use haiderjabbar\laravelsolr\Console\Commands\DeleteSolrFields;
+use HaiderJabbar\LaravelSolr\Console\Commands\DeleteSolrFields;
 use Illuminate\Support\Facades\File;
 use Mockery;
 use Tests\TestCase;
@@ -28,7 +28,7 @@ class DeleteSolrFieldsTest extends TestCase
             ->with(Mockery::type('string'), Mockery::type('string'));
 
         // Mock the FieldsSolrService that will be used in the migration stub
-        $fieldsSolrServiceMock = Mockery::mock('overload:haiderjabbar\laravelsolr\Services\FieldsSolrService');
+        $fieldsSolrServiceMock = Mockery::mock('overload:HaiderJabbar\LaravelSolr\Services\FieldsSolrService');
         $fieldsSolrServiceMock->shouldReceive('deleteFieldsFromCore')
             ->once()
             ->with('testCore', ['title', 'author']);
@@ -52,7 +52,7 @@ class DeleteSolrFieldsTest extends TestCase
             ->with(Mockery::type('string'), Mockery::type('string'));
 
         // Mock the FieldsSolrService but expect no calls since no fields are being deleted
-        $fieldsSolrServiceMock = Mockery::mock('overload:haiderjabbar\laravelsolr\Services\FieldsSolrService');
+        $fieldsSolrServiceMock = Mockery::mock('overload:HaiderJabbar\LaravelSolr\Services\FieldsSolrService');
         $fieldsSolrServiceMock->shouldReceive('deleteFieldsFromCore')
             ->never();
 

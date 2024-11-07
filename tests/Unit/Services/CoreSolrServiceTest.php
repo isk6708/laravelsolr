@@ -1,9 +1,9 @@
 <?php
 
-namespace haiderjabbar\laravelsolr\Tests\Unit\Services;
+namespace HaiderJabbar\LaravelSolr\Tests\Unit\Services;
 
 use Exception;
-use haiderjabbar\laravelsolr\Services\CoreSolrService;
+use HaiderJabbar\LaravelSolr\Services\CoreSolrService;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Output\ConsoleOutput;
