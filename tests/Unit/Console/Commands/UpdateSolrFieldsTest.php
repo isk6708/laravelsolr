@@ -1,9 +1,9 @@
 <?php
 
-namespace haiderjabbar\laravelsolr\Tests\Unit\Console\Commands;
+namespace HaiderJabbar\LaravelSolr\Tests\Unit\Console\Commands;
 
-use haiderjabbar\laravelsolr\Console\Commands\UpdateSolrFields;
-use haiderjabbar\laravelsolr\Schema\SolrSchemaBuilder;
+use HaiderJabbar\LaravelSolr\Console\Commands\UpdateSolrFields;
+use HaiderJabbar\LaravelSolr\Schema\SolrSchemaBuilder;
 use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 use Mockery;

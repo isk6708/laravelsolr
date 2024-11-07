@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use haiderjabbar\laravelsolr\Services\FieldsSolrService;
+use HaiderJabbar\LaravelSolr\Services\FieldsSolrService;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Tests\TestCase;
 

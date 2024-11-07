@@ -1,6 +1,6 @@
 <?php
 
-namespace haiderjabbar\laravelsolr\Services;
+namespace HaiderJabbar\LaravelSolr\Services;
 
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Exception;

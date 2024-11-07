@@ -28,7 +28,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "haiderjabbar\\laravelsolr\\": "src/"
+            "HaiderJabbar\\LaravelSolr\\": "src/"
         }
     },
     "scripts": {
@@ -54,7 +54,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "haiderjabbar\\laravelsolr\\LaravelSolrServiceProvider"
+                "HaiderJabbar\\LaravelSolr\\LaravelSolrServiceProvider"
             ]
         }
     }

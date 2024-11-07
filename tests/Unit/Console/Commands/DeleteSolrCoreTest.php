@@ -1,8 +1,8 @@
 <?php
 
-namespace haiderjabbar\laravelsolr\Tests\Unit\Console\Commands;
+namespace HaiderJabbar\LaravelSolr\Tests\Unit\Console\Commands;
 
-use haiderjabbar\laravelsolr\Console\Commands\DeleteSolrCore;
+use HaiderJabbar\LaravelSolr\Console\Commands\DeleteSolrCore;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Console\Application;
@@ -41,7 +41,7 @@ class DeleteSolrCoreTest extends TestCase
         $stub = $this->command->getMigrationStub($coreName);
 
         $this->assertStringContainsString('use Illuminate\\Database\\Migrations\\Migration;', $stub);
-        $this->assertStringContainsString('use haiderjabbar\\laravelsolr\\Services\\CoreSolrService;', $stub);
+        $this->assertStringContainsString('use HaiderJabbar\\LaravelSolr\\Services\\CoreSolrService;', $stub);
         $this->assertStringContainsString('public function up()', $stub);
         $this->assertStringContainsString('public function down()', $stub);
         $this->assertStringContainsString("\$this->coreSolrService->deleteCore('{$coreName}');", $stub);
