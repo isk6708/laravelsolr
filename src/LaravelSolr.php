@@ -2,7 +2,7 @@
 
 namespace HaiderJabbar\LaravelSolr;
 
-class laravelsolr
+class LaravelSolr
 {
     protected $solrUrl;
 
