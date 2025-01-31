@@ -69,7 +69,8 @@ class SolrModel
     public static function deleteDocumentById($coreName, $id)
     {
         $solrUrl = self::getSolrUrl($coreName);
-        $deleteQuery = ['delete' => ['*' => "*"]];
+        // $deleteQuery = ['delete' => ['*' => "*"]];
+        $deleteQuery = ['delete' => [$id]];
         $response = Http::post("{$solrUrl}/update?commit=true", $deleteQuery);
         return $response->successful();
     }
