@@ -22,7 +22,10 @@ class SolrQueryBuilder
 
     public function __construct($coreName)
     {
+        // dump($coreName);
+        // RKM
         $this->solrUrl = (env('SOLR_URL') ?? "http://localhost:8983/solr") . '/' . $coreName . '/select';
+        // $this->solrUrl = (env('SOLR_URL') ?? "http://localhost:8983/solr") . '/#/' . $coreName . '/query';
 
     }
 
@@ -262,16 +265,27 @@ class SolrQueryBuilder
         // Add filter query if exists
         if ($filterQuery) {
             $query['fq'] = $filterQuery;
+            // $query['fq'] = 'last_modified:'.$filterQuery;
         }
-
+        // RKM        
+        // $query['df'] = 'resourcename';
+        // $query['df'] = 'content';
+        $query['indent'] = 'true';
+        $query['debug'] = 'results';
+        // dd($query);
         // Add faceting if enabled
         if ($this->facet) {
             $query['facet'] = 'true';
             $query['facet.field'] = implode(",",$this->facetFields);
         }
 
-        $response = Http::get($this->solrUrl, $query);
-
+        // dump($query);
+        // dump($this->solrUrl);
+        // dump(Http::get($this->solrUrl, $query));
+        $response = \Illuminate\Support\Facades\Http::get($this->solrUrl, $query);
+        // $response = Http::get('http://localhost:8983/solr/techproducts/query?q=(name:*Black*)&debug=results');
+        // $response = Http::get('http://localhost:8983/solr/secondLocalDocs/select?q=(resourcename:*email*)&debug=results');
+        // dd($response);
 
         if (isset($response["response"]) || $response->successful()) {
             return $response;
@@ -297,9 +311,12 @@ class SolrQueryBuilder
             case '<=':
                 return "[* TO " . addslashes($value) . "]";
             case '>=':
-                return "[" . addslashes($value) . " TO *]";
+                // return "[" . addslashes($value) . " TO *]";
+                return "[" . addslashes($value) . " TO NOW]";
             case 'like':
                 return "*" . addslashes($value) . "*";
+            case 'RKM':
+                    return addslashes($value);
             case 'in':
                 if (is_array($value)) {
                     return '(' . implode(' OR ', array_map(function ($v) {
@@ -431,7 +448,9 @@ class SolrQueryBuilder
 
     protected function buildCondition($field, $operator, $value, $boost = null)
     {
-        $baseCondition = "{$field}:{$this->formatCondition($operator, $value)}";
+        // $baseCondition = "{$field}:{$this->formatCondition($operator, $value)}";
+        // RKM
+        $baseCondition = "{$this->formatCondition($operator, $value)}";
 
         if ($boost !== null) {
             $baseCondition .= "^{$boost}";
@@ -467,6 +486,8 @@ class SolrQueryBuilder
     {
         if (empty($this->searchQueries)) {
             return '*:*';
+            // return 'RKM';
+            // return 'Zakat';
         }
 
         $queryParts = [];
@@ -476,7 +497,9 @@ class SolrQueryBuilder
             }
             $queryParts[] = $query['condition'];
         }
-        return '(' . implode(' ', $queryParts) . ')';
+        // return '(' . implode(' ', $queryParts) . ')';
+        // RKM
+        return implode(' ', $queryParts);
     }
 
     /**
